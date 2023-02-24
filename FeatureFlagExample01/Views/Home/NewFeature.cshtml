@@ -1,0 +1,14 @@
+﻿@using Microsoft.FeatureManagement
+@inject IFeatureManager FeatureManger;
+@{
+    ViewData["Title"] = "New Feature";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Our new feature!!</h1>
+
+    @if (await FeatureManger.IsEnabledAsync("NewFeatureFlag"))
+    {
+        <p>Hey you can see a new feature. Here it is.</p>
+    }
+</div>

@@ -1,0 +1,15 @@
+﻿@using Microsoft.FeatureManagement
+@inject IFeatureManager FeatureManger;
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    
+    @if (await FeatureManger.IsEnabledAsync("NewFeatureFlag"))
+    {
+        <p>Hey you can see a new feature. Go and set it <a asp-action="NewFeature">here</a></p>
+    }
+</div>
