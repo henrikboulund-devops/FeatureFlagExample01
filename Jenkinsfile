@@ -18,7 +18,9 @@ pipeline {
         {
             steps
             {
-                script
+                /* Running K6 to do performance test */
+                sh 'k6 run --vus 10 --duration 30 performance_test.js'
+                /*script
                 {
                     if (env.BRANCH_NAME == 'master')
                     {
@@ -29,7 +31,7 @@ pipeline {
                         echo 'I execute elsewhere'
                     }
                 
-                }  
+                }  */
             }  
         }
 
